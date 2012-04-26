@@ -14,7 +14,7 @@
         />
 
     <browser:viewlet
-       forfor="medialog.galleryviewlet.interfaces.IGallery"
+       for="medialog.galleryviewlet.interfaces.IGalleryloader"
        name="galleryviewlet"
        manager="plone.app.layout.viewlets.interfaces.IPortalTop"
        class=".viewlets.GalleryLoader"
@@ -24,7 +24,7 @@
   <browser:page 
     name="enable_gallery"
     for="*"
-       permission="zope2.View"
+        permission="zope2.View"
     allowed_interface="medialog.galleryviewlet.interfaces.IGalleryloaderUtilProtected"
     attribute="enable"
     layer="..interfaces.IGalleryloaderLayer"
@@ -34,10 +34,21 @@
    <browser:page 
      name="galleryview_util"
      for="*"
-       permission="zope2.View"
+        permission="zope2.View"
      allowed_interface="medialog.galleryviewlet.interfaces.IGalleryloaderUtil"
      layer="medialog.galleryviewlet.interfaces.IGalleryloaderLayer"
      class=".utils.GalleryloaderUtil" />
 
+  <browser:page
+    name="gallery-settings"
+    for="medialog.galleryviewlet.interfaces.IGalleryloader"
+    class=".forms.IGalleryloaderSettingsForm"
+    layer="medialog.galleryviewlet.interfaces.IGalleryloaderLayer"
+           permission="zope2.View"/>
+     
+  <adapter 
+    for="medialog.galleryviewlet.interfaces.IGalleryloader"
+    provides="medialog.galleryviewlet.interfaces.IGalleryloaderSettings"
+    factory="medialog.galleryviewlet.settings.IGalleryloaderSettings" />
 
 </configure>
