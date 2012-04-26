@@ -25,6 +25,7 @@
     name="enable_gallery"
     for="*"
        permission="zope2.View"
+    allowed_interface="medialog.galleryviewlet.interfaces.IGalleryloaderUtilProtected"
     attribute="enable"
     layer="..interfaces.IGalleryloaderLayer"
     class=".utils.GalleryloaderUtilProtected" />
