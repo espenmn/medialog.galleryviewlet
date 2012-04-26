@@ -1,7 +1,7 @@
 from zope.interface import implements, alsoProvides, noLongerProvides
 from Products.Five.browser import BrowserView
 from ..interfaces import IGalleryloaderUtilProtected, \
-    IGalleryloaderUtil
+    IGalleryloaderUtil, IGalleryloader
 from Products.CMFCore.utils import getToolByName
 
 from plone.app.customerize import registration
@@ -54,6 +54,7 @@ class GalleryloaderUtilProtected(BrowserView):
 class GalleryloaderUtil(BrowserView):
     """
     a public traverable utility that checks if it is enabled etc
+    more work to do here
     """
     implements(IGalleryloaderUtil)
 
@@ -63,10 +64,7 @@ class GalleryloaderUtil(BrowserView):
 
     def view_enabled(self):
         utils = getToolByName(self.context, 'plone_utils')
-        try:
-            return utils.browserDefault(self.context)[1][0] == "galleryloaderview"
-        except:
-            return False
+        return True
 
     def should_include(self):
         return self.enabled() or self.view_enabled()

@@ -11,6 +11,13 @@ class IGalleryloaderLayer(Interface):
     
     """
     
+class IGalleryloader(Interface):
+    """
+    marker interface for content types that can use
+    issuu view  
+    """
+
+    
 class IGalleryloaderUtilProtected(Interface):
 
     def enable():
@@ -46,7 +53,7 @@ class IGalleryloaderSettings(Interface):
         title=_(u"label_width_title_galleryloader_setting", default=u"Gallery"),
         description=_(u"label_width_description_galleryloader_setting", 
             default=u"The path to the gallery."),
-        default=u"600px",
+        default=u"gallery",
         required=True
     )
 

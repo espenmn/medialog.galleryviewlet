@@ -31,4 +31,13 @@
     class=".utils.GalleryloaderUtilProtected" />
 
 
+   <browser:page 
+     name="galleryview_util"
+     for="*"
+       permission="zope2.View"
+     allowed_interface="medialog.galleryviewlet.interfaces.IGalleryloaderUtil"
+     layer="medialog.galleryviewlet.interfaces.IGalleryloaderLayer"
+     class=".utils.GalleryloaderUtil" />
+
+
 </configure>

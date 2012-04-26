@@ -15,7 +15,7 @@
  
 		
 		<action title="Gallery Settings" action_id="gallery_settings" category="object"
-            condition_expr="object/@@galleryvie_util/enabled"
+            condition_expr="object/@@galleryview_util/enabled"
             url_expr="string:${object_url}/@@gallery-settings" visible="True">
             <permission>medialog.galleryviewlet: Manage slider settings</permission>
         </action>
