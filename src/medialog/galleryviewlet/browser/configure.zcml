@@ -1,0 +1,33 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="medialog.galleryviewlet">
+
+  <include package="plone.app.contentmenu" />
+
+  <!-- -*- extra stuff goes here -*- -->
+
+    <interface
+        interface=".interfaces.IThemeSpecific"
+        type="zope.publisher.interfaces.browser.IBrowserSkinType"
+        name="galleryloaderinterface"
+        />
+
+    <browser:viewlet
+       forfor="medialog.galleryviewlet.interfaces.IGallery"
+       name="galleryviewlet"
+       manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+       class=".viewlets.GalleryLoader"
+       permission="zope2.View"
+       />
+
+  <browser:page 
+    name="enable_gallery"
+    for="*"
+       permission="zope2.View"
+    attribute="enable"
+    layer="..interfaces.IGalleryloaderLayer"
+    class=".utils.GalleryloaderUtilProtected" />
+
+
+</configure>

@@ -1,0 +1,12 @@
+<tal:block metal:define-macro="LoadGallery">
+	<tal:loadgallery tal:define="portal_url here/portal_url;">
+ 
+ 
+<tal:block tal:define="thegallery nocall:context/bilder"  tal:on-error="nothing">
+<div tal:replace="structure thegallery/@@placegalleryview">the gallery comes here
+</div>
+</tal:block>
+ 
+		
+	</tal:loadgallery>
+</tal:block>
