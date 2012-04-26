@@ -10,14 +10,14 @@
     <interface
         interface=".interfaces.IThemeSpecific"
         type="zope.publisher.interfaces.browser.IBrowserSkinType"
-        name="galleryloaderinterface"
+        name="galleryviewletinterface"
         />
 
     <browser:viewlet
-       for="medialog.galleryviewlet.interfaces.IGalleryloader"
+       for="medialog.galleryviewlet.interfaces.IGalleryviewlet"
        name="galleryviewlet"
        manager="plone.app.layout.viewlets.interfaces.IPortalTop"
-       class=".viewlets.GalleryLoader"
+       class=".viewlets.GalleryViewlet"
        permission="zope2.View"
        />
 
@@ -25,30 +25,32 @@
     name="enable_gallery"
     for="*"
         permission="zope2.View"
-    allowed_interface="medialog.galleryviewlet.interfaces.IGalleryloaderUtilProtected"
+    allowed_interface="medialog.galleryviewlet.interfaces.IGalleryviewletUtilProtected"
     attribute="enable"
-    layer="..interfaces.IGalleryloaderLayer"
-    class=".utils.GalleryloaderUtilProtected" />
+    layer="..interfaces.IGalleryviewletLayer"
+    class=".utils.GalleryviewletUtilProtected" />
 
 
    <browser:page 
-     name="galleryview_util"
+     name="galleryviewlet_util"
      for="*"
         permission="zope2.View"
-     allowed_interface="medialog.galleryviewlet.interfaces.IGalleryloaderUtil"
-     layer="medialog.galleryviewlet.interfaces.IGalleryloaderLayer"
-     class=".utils.GalleryloaderUtil" />
+     allowed_interface="medialog.galleryviewlet.interfaces.IGalleryviewletUtil"
+     layer="medialog.galleryviewlet.interfaces.IGalleryviewletLayer"
+     class=".utils.GalleryviewletUtil" />
 
   <browser:page
-    name="gallery-settings"
-    for="medialog.galleryviewlet.interfaces.IGalleryloader"
-    class=".forms.IGalleryloaderSettingsForm"
-    layer="medialog.galleryviewlet.interfaces.IGalleryloaderLayer"
-           permission="zope2.View"/>
+    name="galleryviewlet_settings"
+    for="medialog.galleryviewlet.interfaces.IGalleryviewlet"
+    class=".forms.GalleryviewletSettingsForm"
+        layer="medialog.galleryviewlet.interfaces.IGalleryviewletLayer"
+    permission="zope2.View"/>
      
   <adapter 
-    for="medialog.galleryviewlet.interfaces.IGalleryloader"
-    provides="medialog.galleryviewlet.interfaces.IGalleryloaderSettings"
-    factory="medialog.galleryviewlet.settings.IGalleryloaderSettings" />
+    for="medialog.galleryviewlet.interfaces.IGalleryviewlet"
+    provides="medialog.galleryviewlet.interfaces.IGalleryviewletSettings"
+    factory="medialog.galleryviewlet.settings.IGalleryviewletSettings" />
 
 </configure>
+
+     

@@ -1,7 +1,7 @@
 from zope.interface import implements, alsoProvides, noLongerProvides
 from Products.Five.browser import BrowserView
-from ..interfaces import IGalleryloaderUtilProtected, \
-    IGalleryloaderUtil, IGalleryloader
+from medialog.galleryviewlet.interfaces import IGalleryviewletUtilProtected, \
+    IGalleryviewletUtil, IGalleryviewlet
 from Products.CMFCore.utils import getToolByName
 
 from plone.app.customerize import registration
@@ -16,19 +16,19 @@ except ImportError:
     from zope.app.annotation.interfaces import IAnnotations
 
 
-class GalleryloaderUtilProtected(BrowserView):
+class GalleryviewletUtilProtected(BrowserView):
     """
     a protected traverable utility for 
-    enabling and disabling galleryloader
+    enabling and disabling galleryviewlet
     """
-    implements(IGalleryloaderUtilProtected)
+    implements(IGalleryviewletUtilProtected)
     def enable(self):
         utils = getToolByName(self.context, 'plone_utils')
 
-        if not IGalleryloader.providedBy(self.context):
-            alsoProvides(self.context, IGalleryloader)
+        if not IGalleryviewlet.providedBy(self.context):
+            alsoProvides(self.context, IGalleryviewlet)
             self.context.reindexObject(idxs=['object_provides'])
-            utils.addPortalMessage("Gallery added.")
+            utils.addPortalMessage("Galleryviewlet added.")
             self.request.response.redirect(self.context.absolute_url())
             
         else:  
@@ -37,29 +37,29 @@ class GalleryloaderUtilProtected(BrowserView):
     def disable(self):
         utils = getToolByName(self.context, 'plone_utils')
         
-        if IGalleryloader.providedBy(self.context):
-            noLongerProvides(self.context, IGalleryloader)
+        if IGalleryviewlet.providedBy(self.context):
+            noLongerProvides(self.context, IGalleryviewlet)
             self.context.reindexObject(idxs=['object_provides'])
             
             #now delete the annotation
             annotations = IAnnotations(self.context)
-            metadata = annotations.get('medialog.galleryloader', None)
+            metadata = annotations.get('medialog.galleryviewlet', None)
             if metadata is not None:
-                del annotations['medialog.galleryloader']
+                del annotations['medialog.galleryviewlet']
                 
-            utils.addPortalMessage("Galleryloader removed.")
+            utils.addPortalMessage("Galleryviewlet removed.")
             
         self.request.response.redirect(self.context.absolute_url())
         
-class GalleryloaderUtil(BrowserView):
+class GalleryviewletUtil(BrowserView):
     """
     a public traverable utility that checks if it is enabled etc
     more work to do here
     """
-    implements(IGalleryloaderUtil)
+    implements(IGalleryviewletUtil)
 
     def enabled(self):
-        return IGalleryloader.providedBy(self.context)    
+        return IGalleryviewlet.providedBy(self.context)    
 
 
     def view_enabled(self):

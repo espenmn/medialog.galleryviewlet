@@ -7,19 +7,19 @@ from zope.component import getMultiAdapter
 from Products.CMFDefault.formlib.schema import SchemaAdapterBase
 from plone.app.form import base as ploneformbase
 
-from medialog.galleryviewlet.interfaces import IGalleryloaderSettings 
+from medialog.galleryviewlet.interfaces import IGalleryviewletSettings 
 from medialog.galleryviewlet import galleryviewletMessageFactory as _
-from medialog.galleryviewlet.settings import GalleryloaderSettings
+from medialog.galleryviewlet.settings import GalleryviewletSettings
   
 
-class GalleryloaderSettingsForm(ploneformbase.EditForm):
+class GalleryviewletSettingsForm(ploneformbase.EditForm):
     """
     The page that holds all the settings
     """
-    form_fields = form.FormFields(IGalleryloaderSettings)
+    form_fields = form.FormFields(IGalleryviewletSettings)
       
-    label = _(u'heading_galleryloader_settings_form', default=u"Galleryloader Settings")
-    description = _(u'description_galleryloader_settings_form', default=u"Configure the parameters for this file.")
-    form_name = _(u'title_galleryloader_settings_form', default=u"Galleryloader settings")
+    label = _(u'heading_galleryviewlet_settings_form', default=u"Galleryviewlet Settings")
+    description = _(u'description_galleryviewlet_settings_form', default=u"Configure the parameters for this file.")
+    form_name = _(u'title_galleryviewlet_settings_form', default=u"Galleryviewlet settings")
     
     

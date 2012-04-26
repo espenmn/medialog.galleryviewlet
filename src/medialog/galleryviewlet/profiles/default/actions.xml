@@ -2,22 +2,22 @@
 <object name="portal_actions" meta_type="Plone Actions Tool">
     <action-provider name="portal_actions">
 
-        <action title="Enable gallery" action_id="enable_gallery" category="object_buttons"
+        <action title="Enable galleryviewlet" action_id="enable_gallery" category="object_buttons"
             url_expr="string:${object_url}/@@enable_gallery" visible="True">
-            <permission>medialog.galleryviewlet: Manage issuu settings</permission>
+            <permission>medialog.galleryviewlet: Manage galleryviewlet settings</permission>
         </action>
 
-        <action title="Disable gallery." action_id="disable_gallery" category="object_buttons"
-            condition_expr="object/@@galleryview_util/enabled"
+        <action title="Disable galleryviewlet" action_id="disable_gallery" category="object_buttons"
+            condition_expr="object/@@galleryviewlet_util/enabled"
             url_expr="string:${object_url}/@@disable_issuu" visible="True">
-            <permission>medialog.galleryviewlet: Manage issuu settings</permission>
+            <permission>medialog.galleryviewlet: Manage galleryviewlet settings</permission>
         </action>
  
 		
-		<action title="Gallery Settings" action_id="gallery_settings" category="object"
-            condition_expr="object/@@galleryview_util/enabled"
-            url_expr="string:${object_url}/@@gallery-settings" visible="True">
-            <permission>medialog.galleryviewlet: Manage slider settings</permission>
+		<action title="Galleryviewlet Settings" action_id="galleryviewlet_settings" category="object"
+            condition_expr="object/@@galleryviewlet_util/enabled"
+            url_expr="string:${object_url}/@@galleryviewlet_settings" visible="True">
+            <permission>medialog.galleryviewlet: Manage galleryviewlet settings</permission>
         </action>
 
 

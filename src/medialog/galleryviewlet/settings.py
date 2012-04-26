@@ -7,14 +7,14 @@ except ImportError:
     #For Zope 2.9
     from zope.app.annotation.interfaces import IAnnotations
 
-from interfaces import IGalleryloaderSettings
+from interfaces import IGalleryviewletSettings
 
 
-class GalleryloaderSettings(object):
+class GalleryviewletSettings(object):
     """
     Copied from Nathan, let's see if it works.  
     """
-    implements(IGalleryloaderSettings)
+    implements(IGalleryviewletSettings)
     
     interfaces = []
 
@@ -44,7 +44,7 @@ class GalleryloaderSettings(object):
     def __getattr__(self, name):
        value = self._metadata.get(name)
        if value is None:
-           v = IGalleryloaderSettings.get(name)
+           v = IGalleryviewletSettings.get(name)
            if v:
                return v.default
        return value

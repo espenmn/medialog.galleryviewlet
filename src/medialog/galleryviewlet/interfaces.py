@@ -5,55 +5,55 @@ from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 from OFS.interfaces import IItem
 
 
-class IGalleryloaderLayer(Interface):
+class IGalleryviewletLayer(Interface):
     """
-    marker interface for galleryloader layer
+    marker interface for galleryviewlet layer
     
     """
     
-class IGalleryloader(Interface):
+class IGalleryviewlet(Interface):
     """
     marker interface for content types that can use
     issuu view  
     """
 
     
-class IGalleryloaderUtilProtected(Interface):
+class IGalleryviewletUtilProtected(Interface):
 
     def enable():
         """
-        enable galleryloader on this object
+        enable galleryviewlet on this object
         """
 
     def disable():
         """
-        disable galleryloader on this object
+        disable galleryviewlet on this object
         """
         self.request.response.redirect(self.context.absolute_url())
 
 
-class IGalleryloaderUtil(Interface):
+class IGalleryviewletUtil(Interface):
 
     def enabled():
         """
-        checks if galleryloader is enabled  
+        checks if galleryviewlet is enabled  
         """
 
     def view_enabled():
         """
-        checks if the galleryloader is selected
+        checks if the galleryviewlet is selected
         """
 
-class IGalleryloaderSettings(Interface):
+class IGalleryviewletSettings(Interface):
     """
-    The actual gallery settings
+    The actual galleryviewlet settings
     """
     
-    width = schema.TextLine(
-        title=_(u"label_width_title_galleryloader_setting", default=u"Gallery"),
-        description=_(u"label_width_description_galleryloader_setting", 
+    path = schema.TextLine(
+        title=_(u"label_width_title_galleryviewlet_setting", default=u"Which Gallery"),
+        description=_(u"label_width_description_galleryviewlet_setting", 
             default=u"The path to the gallery."),
-        default=u"gallery",
+        default=u"/path/to/gallery",
         required=True
     )
 

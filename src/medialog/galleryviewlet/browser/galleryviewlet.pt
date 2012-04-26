@@ -5,6 +5,7 @@
 <tal:block tal:define="thegallery nocall:context/gallery"  tal:on-error="nothing">
 <div tal:replace="structure thegallery/@@placegalleryview">the gallery comes here
 </div>
+Will get path from settings, for now it is just a gallery placed at: /gallery
 </tal:block>
  
 		
