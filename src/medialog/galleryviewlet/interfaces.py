@@ -4,6 +4,12 @@ from medialog.galleryviewlet import galleryviewletMessageFactory  as _
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 from OFS.interfaces import IItem
 
+import urllib
+from plone.memoize.instance import memoize
+
+from collective.plonetruegallery.vocabularies import \
+    GallerySearchabelTextSourceBinder
+
 
 class IGalleryviewletLayer(Interface):
     """
@@ -47,11 +53,9 @@ class IGalleryviewletSettings(Interface):
     The actual galleryviewlet settings
     """
     
-    gallerypath = schema.TextLine(
+    gallerypath = schema.Choice(
         title=_(u"label_width_title_galleryviewlet_setting", default=u"Which Gallery"),
         description=_(u"label_width_description_galleryviewlet_setting", 
-            default=u"The path to the gallery."),
-        default=u"/path/to/gallery",
-        required=True
-    )
-
+            default=u"The gallery you want to  show."),
+        source=GallerySearchabelTextSourceBinder(),
+        required=True)
