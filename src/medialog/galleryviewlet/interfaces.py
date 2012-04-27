@@ -10,6 +10,15 @@ from plone.memoize.instance import memoize
 from collective.plonetruegallery.vocabularies import \
     GallerySearchabelTextSourceBinder
 
+ 
+from zope.component import getMultiAdapter
+ 
+from collective.plonetruegallery.vocabularies import \
+    GallerySearchabelTextSourceBinder
+
+from collective.plonetruegallery.utils import getGalleryAdapter
+
+
 
 class IGalleryviewletLayer(Interface):
     """
