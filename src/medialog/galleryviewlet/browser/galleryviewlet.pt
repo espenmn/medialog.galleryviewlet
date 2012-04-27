@@ -1,14 +1,13 @@
 <tal:block metal:define-macro="LoadGallery">
-	<tal:loadgallery tal:define="portal_url here/portal_url;">
- 
- 
-<tal:block tal:define="gallerypath view/gallerypath; thegallery python:'context/' + gallerypath + '/@@placegalleryview'"  >
-<div tal:replace="structure context/$(gallerypath)/@@placegalleryview">the gallery comes here
-</div>
-<div tal:content="thegallery" />
-Will get path from settings, for now it is just a gallery from path: /gallery
-</tal:block>
- 
-		
-	</tal:loadgallery>
+ <tal:loadgallery tal:define="portal_url here/portal_url;">
+  <tal:block >
+    <div tal:define="gallerypath view/gallerypath; 
+                     thegallery python:'context/' + gallerypath + '/@@placegalleryview'"   
+         tal:replace="structure context/$gallerypath/@@placegalleryview">
+         the gallery comes here
+    </div>
+   <div tal:content="thegallery" />
+   Will get path from settings, for now it is just a gallery from path: /gallery
+  </tal:block>
+ </tal:loadgallery>
 </tal:block>
