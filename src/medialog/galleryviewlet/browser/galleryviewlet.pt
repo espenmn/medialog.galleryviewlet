@@ -1,6 +1,3 @@
-<tal:block metal:define-macro="LoadGallery">
- <tal:loadgallery tal:define="portal_url here/portal_url;">
-     <tal:replace tal:replace="structure view/gallery" />
-    <div tal:replace="structure context/gallery/@@placegalleryview">gallery</div>
- </tal:loadgallery>
-</tal:block>
+<tal:replace tal:replace="structure view/gallery" />
+
+<div tal:replace="structure context/gallery/@@placegalleryview">gallery</div>
