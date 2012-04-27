@@ -13,8 +13,7 @@ class IGalleryviewletLayer(Interface):
     
 class IGalleryviewlet(Interface):
     """
-    marker interface for content types that can use
-    issuu view  
+    marker interface for content types that can use the viewlet 
     """
 
     
@@ -29,7 +28,6 @@ class IGalleryviewletUtilProtected(Interface):
         """
         disable galleryviewlet on this object
         """
-        self.request.response.redirect(self.context.absolute_url())
 
 
 class IGalleryviewletUtil(Interface):
@@ -49,7 +47,7 @@ class IGalleryviewletSettings(Interface):
     The actual galleryviewlet settings
     """
     
-    path = schema.TextLine(
+    gallerypath = schema.TextLine(
         title=_(u"label_width_title_galleryviewlet_setting", default=u"Which Gallery"),
         description=_(u"label_width_description_galleryviewlet_setting", 
             default=u"The path to the gallery."),

@@ -27,9 +27,17 @@
         permission="zope2.View"
     allowed_interface="medialog.galleryviewlet.interfaces.IGalleryviewletUtilProtected"
     attribute="enable"
-    layer="..interfaces.IGalleryviewletLayer"
+    layer="medialog.galleryviewlet.interfaces.IGalleryviewletLayer"
     class=".utils.GalleryviewletUtilProtected" />
 
+  <browser:page 
+    name="disable_gallery"
+    for="*"
+        permission="zope2.View"
+    allowed_interface="medialog.galleryviewlet.interfaces.IGalleryviewletUtilProtected"
+    attribute="disable"
+    layer="medialog.galleryviewlet.interfaces.IGalleryviewletLayer"
+    class=".utils.GalleryviewletUtilProtected" />
 
    <browser:page 
      name="galleryviewlet_util"
@@ -49,7 +57,7 @@
   <adapter 
     for="medialog.galleryviewlet.interfaces.IGalleryviewlet"
     provides="medialog.galleryviewlet.interfaces.IGalleryviewletSettings"
-    factory="medialog.galleryviewlet.settings.IGalleryviewletSettings" />
+    factory="medialog.galleryviewlet.settings.GalleryviewletSettings" />
 
 </configure>
 
