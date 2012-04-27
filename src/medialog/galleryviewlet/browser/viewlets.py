@@ -23,9 +23,9 @@ class GalleryViewlet(ViewletBase):
     
     implements(IGalleryviewletSettings)
 
-    def gallerypath(self):
+    def gallery(self):
 		context=self.context
 		self.settings = GalleryviewletSettings(context)
 		return u"""
-<div tal:replace="structure context/%(gallery)s/@@placegalleryview>gallery here</div>'
-""" % {'gallery': self.settings.gallerypath}
+		<div tal:replace="structure context/%(gallerypath)s/@@placegalleryview">gallery here</div>
+""" % {'gallerypath': self.settings.gallerypath}

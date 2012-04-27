@@ -1,11 +1,6 @@
 <tal:block metal:define-macro="LoadGallery">
  <tal:loadgallery tal:define="portal_url here/portal_url;">
-  <tal:block >
-    <div tal:replace="structure view/gallerypath">
-         the gallery comes here
-    </div>
- 
-   Will get path from settings, for now it is just a gallery from path: /gallery
-  </tal:block>
+     <tal:replace tal:replace="structure view/gallery" />
+    <div tal:replace="structure context/gallery/@@placegalleryview">gallery</div>
  </tal:loadgallery>
 </tal:block>
