@@ -7,7 +7,7 @@ from OFS.interfaces import IItem
 #from plone.memoize.instance import memoize
 #from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 #from collective.plonetruegallery.vocabularies import \
-    GallerySearchabelTextSourceBinder
+#    GallerySearchabelTextSourceBinder
 
 class IGalleryviewletLayer(Interface):
     """
