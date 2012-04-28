@@ -1,3 +1,4 @@
-<div  tal:content="structure view/gallerypath/@@placegalleryview" 
-	  tal:condition="view/gallerypath"/> 
+<div class="galleryviewlet" 
+     tal:content="structure view/gallerypath/@@placegalleryview" 
+	 tal:condition="view/gallerypath"/> 
  
