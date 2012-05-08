@@ -16,7 +16,6 @@ from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
 
 
-
 class GalleryViewlet(ViewletBase):
     render = ViewPageTemplateFile('galleryviewlet.pt')
     
