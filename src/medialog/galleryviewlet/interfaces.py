@@ -3,13 +3,7 @@ from zope import schema
 from medialog.galleryviewlet import galleryviewletMessageFactory  as _
 from OFS.interfaces import IItem
 
-<<<<<<< HEAD
-#import urllib
-#from plone.memoize.instance import memoize
-#from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
-#from collective.plonetruegallery.vocabularies import \
-#    GallerySearchabelTextSourceBinder
-=======
+ 
 import urllib
 from plone.memoize.instance import memoize
 
@@ -20,8 +14,7 @@ from zope.component import getMultiAdapter
 #    GallerySearchabelTextSourceBinder
 
 #from collective.plonetruegallery.utils import getGalleryAdapter
->>>>>>> Giving up on using the gallery vocabulary, using text line instead
-
+ 
  
 class IGalleryviewletLayer(Interface):
     """
@@ -68,9 +61,5 @@ class IGalleryviewletSettings(Interface):
     gallerypath = schema.TextLine(
         title=_(u"label_width_title_galleryviewlet_setting", default=u"Which Gallery"),
         description=_(u"label_width_description_galleryviewlet_setting", 
-<<<<<<< HEAD
-            default=u"The gallery you want to  show."),
-=======
-            default=u"The path to the gallery you want to  show."),
->>>>>>> Giving up on using the gallery vocabulary, using text line instead
+        default=u"The path to the gallery you want to  show."),
         required=True)
